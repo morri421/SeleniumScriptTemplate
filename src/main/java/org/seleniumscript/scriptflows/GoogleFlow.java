@@ -1,5 +1,8 @@
 package org.seleniumscript.scriptflows;
 
+import com.codeborne.selenide.Browser;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -12,14 +15,21 @@ public class GoogleFlow implements SiteFlow {
     private String SITE_URL = "http://google.com";
     private String USER = "fakeemail@gmail.com";
     private String PW = "fake_password";
+    Logger logger = (Logger) LogManager.getLogger(GoogleFlow.class);
+
+    private BrowserService browser;
+
+    public GoogleFlow() {
+        this.browser = new BrowserService();
+    }
 
     public void start() {
-        BrowserService browser = new BrowserService();
         WebDriver driver = browser.startUp();
         try {
             openSite(SITE_URL, driver);
             login(USER, PW, driver);
         } catch(Exception e) {
+            logger.info("Exception in GoogleFlow after browser setup");
             browser.quitBrowser(driver);
         }
     }
@@ -38,5 +48,6 @@ public class GoogleFlow implements SiteFlow {
         emailInput.sendKeys(Keys.ENTER);
         //this login attempt will fail because its an unsecured login attempt
         //it's intended as an example
+        loginButton.click();
     }
 }
