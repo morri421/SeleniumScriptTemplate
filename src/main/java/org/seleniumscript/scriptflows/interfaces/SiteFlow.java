@@ -1,4 +1,4 @@
-package org.seleniumscript.interfaces;
+package org.seleniumscript.scriptflows.interfaces;
 
 import org.openqa.selenium.WebDriver;
 
