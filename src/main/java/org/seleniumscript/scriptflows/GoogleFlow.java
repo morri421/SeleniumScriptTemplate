@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.seleniumscript.filemanager.ExcelFileService;
+import org.seleniumscript.services.ExcelFileService;
 import org.seleniumscript.scriptflows.interfaces.SiteFlow;
 import org.seleniumscript.services.BrowserService;
 
@@ -29,6 +29,7 @@ public class GoogleFlow implements SiteFlow {
 
     public void start() {
         WebDriver browser = this.browser.startUp();
+        openSite(SITE_URL, browser);
         try {
             openSite(SITE_URL, browser);
             login(USER, PW, browser);
