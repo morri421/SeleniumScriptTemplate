@@ -32,7 +32,6 @@ public class GoogleFlow implements SiteFlow {
         try {
             openSite(SITE_URL, browser);
             login(USER, PW, browser);
-            excelFileService.connectToExcel();
         } catch(Exception e) {
             logger.info("Exception in GoogleFlow after browser setup");
             this.browser.quitBrowser(browser);
