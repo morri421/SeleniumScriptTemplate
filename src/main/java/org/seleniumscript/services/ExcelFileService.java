@@ -38,7 +38,7 @@ public class ExcelFileService {
             workbook.write(outputStream);
             logger.info("Wrote to Excel file successfully");
         } catch (Exception e) {
-            logger.info("ExcelFileService can't WRITE to given file. Exception: " + e);
+            logger.info("ExcelFileService can't WRITE to given file.");
             throw new RuntimeException(e);
         }
     }
@@ -48,7 +48,7 @@ public class ExcelFileService {
             workbook.close();
             logger.info("Closed Excel file successfully");
         } catch (IOException e) {
-            logger.info("ExcelFileService can't close Excel file. Exception: " + e);
+            logger.info("ExcelFileService can't close Excel file.");
             throw new RuntimeException(e);
         }
     }
