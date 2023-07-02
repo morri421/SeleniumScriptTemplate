@@ -20,7 +20,6 @@ public class ExcelFileService {
 
     public XSSFWorkbook connectToExcel() {
         File excel = new File(excelFilePath);
-
         try {
             inputStream = new FileInputStream(excel);
             workbook = new XSSFWorkbook(inputStream);

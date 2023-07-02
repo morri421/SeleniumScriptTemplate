@@ -30,7 +30,7 @@ class BrowserServiceTest {
     void whenBrowserServiceGivenNullUrl_returnsNullPointer() {
         assertThrows(
                 NullPointerException.class,
-                () -> { testBrowserService.openUrl(null, testWebDriver);; }
+                () -> { testBrowserService.openUrl(null, testWebDriver); }
         );
     }
 
@@ -39,7 +39,7 @@ class BrowserServiceTest {
     void whenBrowserServiceGivenEmptyUrls_returnsInvalidArgumentException(String url) {
         assertThrows(
                 InvalidArgumentException.class,
-                () -> { testBrowserService.openUrl(url, testWebDriver);; }
+                () -> { testBrowserService.openUrl(url, testWebDriver); }
         );
     }
 
@@ -48,9 +48,7 @@ class BrowserServiceTest {
     void whenBrowserServiceGivenInvalidUrls_returnsInvalidArgumentsException (String url) {
         assertThrows(
                 InvalidArgumentException.class,
-                () -> {
-                    testBrowserService.openUrl(url, testWebDriver);
-                }
+                () -> { testBrowserService.openUrl(url, testWebDriver); }
         );
     }
 }
