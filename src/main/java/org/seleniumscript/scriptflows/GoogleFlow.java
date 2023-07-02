@@ -19,29 +19,23 @@ public class GoogleFlow implements SiteFlow {
 
     Logger logger = (Logger) LogManager.getLogger(GoogleFlow.class);
 
-    private BrowserService browser;
+    private BrowserService browserService;
     private ExcelFileService excelFileService;
 
     public GoogleFlow() {
-        this.browser = new BrowserService();
+        this.browserService = new BrowserService();
         this.excelFileService = new ExcelFileService(excelFilePath);
     }
 
     public void start() {
-        WebDriver browser = this.browser.startUp();
-        openSite(SITE_URL, browser);
+        WebDriver browser = browserService.startUp();
+        browserService.openUrl(SITE_URL, browser);
         try {
-            openSite(SITE_URL, browser);
             login(USER, PW, browser);
         } catch(Exception e) {
             logger.info("Exception in GoogleFlow after browser setup");
-            this.browser.quitBrowser(browser);
+            browserService.quitBrowser(browser);
         }
-    }
-
-    @Override
-    public void openSite(String SITE_URL, WebDriver driver) {
-        driver.get(SITE_URL);
     }
 
     @Override

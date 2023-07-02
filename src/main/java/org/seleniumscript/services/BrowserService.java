@@ -16,6 +16,10 @@ public class BrowserService {
         return driver;
     }
 
+    public void openUrl(String SITE_URL, WebDriver driver) {
+        driver.get(SITE_URL);
+    }
+
     public void quitBrowser(WebDriver driver) {
         driver.quit();
     }
