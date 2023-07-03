@@ -1,10 +1,10 @@
 package org.seleniumscript;
 
-import org.seleniumscript.scriptflows.GoogleFlow;
+import org.seleniumscript.scriptflows.GoogleFlowExample;
 
 public class Main {
     public static void main(String[] args) {
-        GoogleFlow googleFlow = new GoogleFlow();
-        googleFlow.start();
+        GoogleFlowExample googleFlowExample = new GoogleFlowExample();
+        googleFlowExample.start();
     }
 }
